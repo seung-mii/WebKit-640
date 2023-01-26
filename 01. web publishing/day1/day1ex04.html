@@ -29,6 +29,7 @@
 
       // i번째 요소를 클릭하면 colors의 i번째 색상이 적용되도록 한다. 
       //    -> 안됨 -> 이미 i는 0 ~ 5까지 반복되어서 그 후에 event가 발생하므로 불가능
+      // ==> 즉, 이벤트 핸들러를 반복문 안에 넣으면 전부 반복된 후에 이벤트가 발생한다.
       // lis[i].onclick = function (e) {
       //   this.style.backgroundColor = colors[i];
       // }
