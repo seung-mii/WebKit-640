@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calc {
+            width: 210px;
+        }
+        #calc button {
+            width: 50px;
+            height: 50px;
+            color: white;
+            background-color: grey;
+            border-radius: 50%;
+            font-size: px;
+        }
+        #result {
+            width: 203px;
+            height: 30px;
+            color: white;
+            background-color: grey;
+            border-radius: 5%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>계산기</h1>
+    <div id="calc">
+        <input id="result" type="text">
+        <br/>
+        <table>
+            <tr>
+                <td><button id="7">7</button></td>
+                <td><button id="8">8</button></td>
+                <td><button id="9">9</button></td>
+                <td><button id="10">/</button></td>
+            </tr>
+            <tr>
+                <td><button id="4">4</button></td>
+                <td><button id="5">5</button></td>
+                <td><button id="6">6</button></td>
+                <td><button id="11">*</button></td>
+            </tr>
+            <tr>
+                <td><button id="1">1</button></td>
+                <td><button id="2">2</button></td>
+                <td><button id="3">3</button></td>
+                <td><button id="12">-</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button id="0">0</button></td>
+                <td><button id="14">=</button></td>
+                <td><button id="13">+</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var calc = document.getElementById("calc");
+        var result = document.getElementById("result");
+        var btns = calc.getElementsByTagName("button");
+        var num = [0, 0]; // 이전 값
+        var oper = 0; // 연산자
+        var resultNum = 0;
+
+        function calculator(temp) {
+            // console.log(temp);
+            if(temp < 10) {
+                result.value = result.value + temp;
+                if(oper == 0) num[0] = Number(temp);
+                else num[1] = Number(temp);
+            } else if(temp == 10) { // 나누기
+                result.value = result.value + " / ";
+                oper = 10;
+            } else if(temp == 11) { // 곱하기
+                result.value = result.value + " * ";
+                oper = 11;
+            } else if(temp == 12) { // 빼기
+                result.value = result.value + " - ";
+                oper = 12;
+            } else if(temp == 13) { // 더하기
+                result.value = result.value + " + ";
+                oper = 13;
+            } else {
+                makeResult(oper);
+                oper = 0;
+            }
+        };
+
+        function makeResult(op) {
+            if(op == 10) resultNum = Number(num[0]) / Number(num[1]);
+            else if(op == 11) resultNum = Number(num[0]) * Number(num[1]);
+            else if(op == 12) resultNum = Number(num[0]) - Number(num[1]);
+            else if(op == 13) resultNum = Number(num[0]) + Number(num[1]);
+            result.value = resultNum;
+            num[0] = resultNum;
+        };
+        
+        for(var btn of btns) {
+            btn.onclick = function (e) {
+                // console.log(this.innerText);
+                calculator(this.id);
+            }
+        }
+    </script>
+</body>
+</html>
