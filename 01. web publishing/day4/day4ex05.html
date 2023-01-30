@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        div.container div {
+            padding: 3px;
+            margin : 3px;
+            border: 3px solid navy;
+            border-radius: 7px;
+            width: 900px;
+            overflow: hidden;
+            background-color: blanchedalmond;
+        }
+        div.header h1, h3 {
+            background-color: pink;
+            border: 3px solid navy;
+            margin: 4px;
+        }
+        div.middle .left, div.middle .center, div.middle .right {
+            background-color: pink;
+            border: 3px solid navy;
+            color: white;
+        }
+
+        div.middle .left {
+            background-color: pink;
+        }
+        
+        div.middle .stylesheets {
+            background-color: green;
+            width: 135px;
+        }
+
+        div.middle .stylesheets > div {
+            background-color: steelblue;
+            width: 120px;
+            height: 20px;
+        }
+
+        /* div.left {
+            /* background-color: green; 
+        } */
+
+        div.middle > div {
+            width: 150px;
+            float: left;
+            height: 200px;
+            /* background-color: green; */
+            border: 3px solid navy;
+        }
+
+        div.middle div.center {
+            width: 545px;
+        }
+
+        div.middle div.center > div {
+            background-color: green;
+            height: 32px;
+        }
+        
+        div.right > div:nth-child(1) {
+            height: 20px;
+            width: 130px;
+            background-color: green;
+        }
+
+        div.right > div {
+            height: 100px;
+            width: 130px;
+            background-color: green;
+        }
+
+        div.footer {
+            clear: both;
+            height: 80px;
+            background-color: blanchedalmond;
+        }
+        div.center > div {
+            height: 40px;
+            width: 530px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to My Homepage</h1>
+            <h3>Use the menu to select different Stylesheets</h3>
+        </div>
+        <div class="middle">
+            <div class="left">
+                <div class="stylesheets">
+                    <div>Stylesheet1</div>
+                    <div>Stylesheet2</div>
+                    <div>Stylesheet3</div>
+                    <div>Stylesheet4</div>
+                    <div>No Stylesheet</div>
+                </div>
+            </div>
+            <div class="center">
+                <div>Same Page Different Stylesheets</div>
+                <div>This is a demonstration of how different ~</div>
+                <div>No Styles</div>
+                <div>This page uses DIV elements to group ~</div>
+            </div>
+            <div class="right">
+                <div>Side-Bar</div>
+                <div>Lorem ipsum dolor slt amet, consectetur ~</div>
+            </div>
+        </div>
+        <div class="footer">
+            Lorem ipsum dolor slt amet, consectetur ~
+        </div>
+    </div>
+</body>
+</html>
